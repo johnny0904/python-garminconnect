@@ -71,7 +71,7 @@ reset-db:
 
 # 清空並重建表格（基於 models.py）
 reset-tables:
-	uv run python -c "from your_data.db import get_engine, Base; from your_data import models; Base.metadata.drop_all(get_engine()); Base.metadata.create_all(get_engine()); print('Tables reset successfully')"
+	uv run python -c "from johnny.db import get_engine, Base; from johnny import models; Base.metadata.drop_all(get_engine()); Base.metadata.create_all(get_engine()); print('Tables reset successfully')"
 
 # 匯入資料庫 SQL 檔案
 import-db:

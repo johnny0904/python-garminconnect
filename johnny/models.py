@@ -8,7 +8,7 @@ from sqlalchemy import (
 )
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
-from your_data.db import Base
+from johnny.db import Base
 
 
 class DailySummary(Base):

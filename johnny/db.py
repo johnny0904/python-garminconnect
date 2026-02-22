@@ -34,5 +34,5 @@ def get_session():
 
 def init_db():
     """Create all tables if they don't exist."""
-    from your_data import models  # noqa: F401 – registers models with Base
+    from johnny import models  # noqa: F401 – registers models with Base
     Base.metadata.create_all(get_engine())

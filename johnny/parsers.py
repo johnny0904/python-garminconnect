@@ -5,7 +5,7 @@ from __future__ import annotations
 from datetime import date, datetime
 from typing import Any
 
-from your_data.models import Activity, ActivitySplitSummary, DailyHrv, DailySleep, DailySummary
+from johnny.models import Activity, ActivitySplitSummary, DailyHrv, DailySleep, DailySummary
 
 
 def _sentinel(val: Any, *, allow_zero: bool = True) -> Any:

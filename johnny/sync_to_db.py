@@ -2,7 +2,7 @@
 """Sync Garmin health data for a date to MySQL.
 
 Usage:
-    python your_data/sync_to_db.py [YYYY-MM-DD]
+    python johnny/sync_to_db.py [YYYY-MM-DD]
 
 Defaults to yesterday if no date given.
 Always fetches fresh data directly from the Garmin API.
@@ -20,10 +20,10 @@ from datetime import date, timedelta
 
 from sqlalchemy import delete
 
-from your_data.auth import init_api
-from your_data.db import get_session, init_db
-from your_data.models import ActivitySplitSummary
-from your_data.parsers import (
+from johnny.auth import init_api
+from johnny.db import get_session, init_db
+from johnny.models import ActivitySplitSummary
+from johnny.parsers import (
     parse_activities,
     parse_daily_hrv,
     parse_daily_sleep,
