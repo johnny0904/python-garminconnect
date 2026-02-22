@@ -7,6 +7,8 @@ authors = [
 ]
 dependencies = [
     "garth>=0.5.17,<0.6.0",
+    "sqlalchemy>=2.0",
+    "pymysql>=1.1",
 ]
 readme = "README.md"
 license = {text = "MIT"}
