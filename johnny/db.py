@@ -6,7 +6,7 @@ from sqlalchemy.orm import DeclarativeBase, sessionmaker
 
 DATABASE_URL = os.getenv(
     "DATABASE_URL",
-    "mysql+pymysql://healthuser:healthpassword@127.0.0.1:3306/health",
+    "mysql+pymysql://healthuser:hM5Z.C6fU2G-FqCt@127.0.0.1:3306/health",
 )
 
 
