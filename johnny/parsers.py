@@ -110,8 +110,8 @@ def parse_daily_sleep(sleep_data: dict[str, Any]) -> DailySleep | None:
 
     return DailySleep(
         calendar_date=cal_date,
-        sleep_start_timestamp_local=_epoch_ms_to_datetime(dto.get("sleepStartTimestampLocal")),
-        sleep_end_timestamp_local=_epoch_ms_to_datetime(dto.get("sleepEndTimestampLocal")),
+        sleep_start_timestamp_local=_epoch_ms_to_datetime(dto.get("sleepStartTimestampGMT")),
+        sleep_end_timestamp_local=_epoch_ms_to_datetime(dto.get("sleepEndTimestampGMT")),
         sleep_time_seconds=_sentinel(dto.get("sleepTimeSeconds")),
         nap_time_seconds=_sentinel(dto.get("napTimeSeconds")),
         deep_sleep_seconds=_sentinel(dto.get("deepSleepSeconds")),
