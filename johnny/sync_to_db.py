@@ -73,7 +73,8 @@ def main() -> None:
 
     stats_body = _fetch("stats_and_body", lambda: api.get_stats_and_body(target_date))
     hydration = _fetch("hydration_data", lambda: api.get_hydration_data(target_date))
-    sleep_data = _fetch("sleep_data", lambda: api.get_sleep_data(target_date))
+    sleep_date = (date.fromisoformat(target_date) + timedelta(days=1)).isoformat()
+    sleep_data = _fetch("sleep_data", lambda: api.get_sleep_data(sleep_date))
     hrv_data = _fetch("hrv_data", lambda: api.get_hrv_data(target_date))
     activities_data = _fetch("activities_by_date", lambda: api.get_activities_by_date(target_date, target_date))
 
@@ -88,6 +89,7 @@ def main() -> None:
     if sleep_data:
         parsed_sleep = parse_daily_sleep(sleep_data)
         if parsed_sleep:
+            parsed_sleep.calendar_date = date.fromisoformat(target_date)
             rows["daily_sleep"] = parsed_sleep
             print(f"  daily_sleep   → {target_date}")
 
