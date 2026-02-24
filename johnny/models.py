@@ -4,7 +4,7 @@ from datetime import date, datetime
 
 from sqlalchemy import (
     BigInteger, Date, DateTime, Double, Float, ForeignKey,
-    Integer, String, func,
+    Integer, String,
 )
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
@@ -62,8 +62,6 @@ class DailySummary(Base):
     metabolic_age: Mapped[float | None] = mapped_column(Float)
     hydration_value_ml: Mapped[int | None] = mapped_column(Integer)
     hydration_goal_ml: Mapped[int | None] = mapped_column(Integer)
-    created_at: Mapped[datetime] = mapped_column(DateTime, server_default=func.now())
-    updated_at: Mapped[datetime] = mapped_column(DateTime, server_default=func.now(), onupdate=func.now())
 
 
 class DailySleep(Base):
