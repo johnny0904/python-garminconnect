@@ -1,17 +1,16 @@
 services:
   db:
-    image: mysql:8.0
+    image: postgres:16
     container_name: health-db
     restart: unless-stopped
     environment:
-      MYSQL_ROOT_PASSWORD: rootpassword
-      MYSQL_DATABASE: health
-      MYSQL_USER: healthuser
-      MYSQL_PASSWORD: healthpassword
+      POSTGRES_USER: healthuser
+      POSTGRES_PASSWORD: healthpassword
+      POSTGRES_DB: health
     ports:
-      - "3307:3306"
+      - "5432:5432"
     volumes:
-      - db_data:/var/lib/mysql
+      - db_data:/var/lib/postgresql/data
     networks:
       - health-net
 

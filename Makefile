@@ -67,7 +67,7 @@ into-app:
 
 # 重設資料庫（刪除並重新建立資料庫）
 reset-db:
-	docker compose exec db mysql -uhealthuser -phealthpassword health -e "DROP DATABASE IF EXISTS health; CREATE DATABASE health DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;"
+	docker compose exec db psql -U healthuser postgres -c "DROP DATABASE IF EXISTS health;" -c "CREATE DATABASE health OWNER healthuser;"
 
 # 清空並重建表格（基於 models.py）
 reset-tables:
@@ -75,11 +75,11 @@ reset-tables:
 
 # 匯入資料庫 SQL 檔案
 import-db:
-	docker compose exec -i db mysql -uhealthuser -phealthpassword health < health.sql
+	docker compose exec -i db psql -U healthuser health < health.sql
 
-# 進入 db 容器執行 MySQL 查詢
+# 進入 db 容器執行 PostgreSQL 查詢
 db-query:
-	docker compose exec db mysql -u healthuser -phealthpassword -h localhost health --default-character-set=utf8mb4
+	docker compose exec db psql -U healthuser health
 
 # 在 app 容器內執行 composer dump-autoload
 dump-in-app:

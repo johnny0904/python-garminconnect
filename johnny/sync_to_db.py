@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Sync Garmin health data for a date to MySQL.
+"""Sync Garmin health data for a date to PostgreSQL.
 
 Usage:
     python johnny/sync_to_db.py [YYYY-MM-DD]
@@ -8,7 +8,8 @@ Defaults to yesterday if no date given.
 Always fetches fresh data directly from the Garmin API.
 
 Environment Variables:
-    DATABASE_URL   (default: mysql+pymysql://healthuser:healthpassword@127.0.0.1:3307/health)
+    DATABASE_URL   (default: postgresql+psycopg2://healthuser:hM5Z.C6fU2G-FqCt@127.0.0.1:5432/health)
+    PGHOST/PGPORT/PGUSER/PGPASSWORD/PGDATABASE
     EMAIL          Garmin account email
     PASSWORD       Garmin account password
     GARMINTOKENS   Path to token storage (default: ~/.garminconnect)
